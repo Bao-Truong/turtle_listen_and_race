@@ -7,9 +7,9 @@ NUMBER_OF_COMPUTERS = 5
 SPACE_BETWEEN = 100
 WIDTH = (NUMBER_OF_COMPUTERS)*SPACE_BETWEEN
 HEIGHT = (NUMBER_OF_COMPUTERS)*SPACE_BETWEEN
-
+     
 screen = Screen()
-screen.setup(WIDTH+30, HEIGHT+30)
+screen.setup(WIDTH+40, HEIGHT+40)
 screen.screensize(WIDTH, HEIGHT)
 player_color = screen.textinput(
     title="Make yourbet", prompt="Which turtle will win the race? Enter a color: ")
@@ -25,9 +25,9 @@ goals = [0 for _ in range(NUMBER_OF_COMPUTERS+1)]
 
 def random_fw(i=0):
     if(i == 0):
-        return random.randint(0, 12)
+        return random.randint(0, 11)
     else:
-        return random.randint(1, 10)
+        return random.randint(0, 10)
 
 
 def get_color():
@@ -37,7 +37,7 @@ def get_color():
     return (r, g, b)
 
 
-def create_computer(screen):
+def create_computer():
     global players
 
     for _ in range(NUMBER_OF_COMPUTERS):
@@ -64,7 +64,7 @@ def game_start(screen):
                 return i
 
 
-create_computer(screen)
+create_computer()
 get_on_position(screen)
 winner = game_start(screen)
 
